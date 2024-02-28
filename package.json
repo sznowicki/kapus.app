@@ -2,7 +2,6 @@
   "name": "@sznowicki/kapus-app",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "repository": "git@github.com:sznowicki/kapus.app.git",
   "author": "Szymon Nowicki",
