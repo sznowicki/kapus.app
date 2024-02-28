@@ -1,7 +1,7 @@
 import {readFileSync} from 'fs';
 import {resolve} from 'path';
 import {renderHtml} from "../../lib/ssr-render.js";
-import {destroyRoom, getRoom} from '../../lib/rooms.js';
+import {destroyRoom, getRoom, getStats} from '../../lib/rooms.js';
 import {UserError} from "../../lib/Errors.js";
 
 const cookieOpts = {
@@ -35,7 +35,7 @@ const roomGetter = (req, res) => {
 			res.cookie('secret', secret, cookieOpts);
 
 			if (content) {
-				room.content = content;
+				room.setContent(content);
 			}
 		}
 
@@ -48,6 +48,7 @@ const roomGetter = (req, res) => {
 export const indexController = async (req, res) => {
 	let error = null;
 	let room = null;
+	const stats = getStats();
 
 	try {
 		room = roomGetter(req, res);
@@ -63,12 +64,12 @@ export const indexController = async (req, res) => {
 	const data = {
 		room,
 		error,
+		stats,
 		hasRoom: !!room,
 		noRoom: !room,
 		hasError: !!error,
 	};
 
-	console.log(data);
 
 	const html = await renderHtml(indexTemplate, data);
 

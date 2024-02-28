@@ -30,7 +30,9 @@
 				<p>tl;dr: set a room name, optionally protect with password. Paste on one device, copy on another; no matter where is it.</p>
 				<p>To log in to existing room, use same room name and pass.</p>
 				<p>Warning: if you don't set a password, or someone guess it, your data will leak.</p>
-				<p>Warning2: this website keeps your stuff in memory, no database involved. Data is not persistent.</p>
+				<p>Warning2: this website keeps your stuff in server memory, no database involved, no encryption. Data is not persistent.</p>
+				<p>I promise not to look into the memory, but again, it's not encrypted (yet). Just saying.</p>
+				<p>I keep no historical clipboards. Once you save, only latest state is kept in memory.</p>
 			{{/noRoom}}
 			{{#hasRoom}}
 			<form method="POST">

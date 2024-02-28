@@ -2,18 +2,31 @@ import { UserError } from "./Errors.js";
 
 const roomsStorage = new Map();
 
+class Room {
+	constructor(roomId, password) {
+		this.roomId = roomId;
+		this.password = password;
+		this.content = '';
+		this.modified = new Date();
+	}
 
+	setContent(newContent) {
+		this.content = newContent;
+		this.modified = new Date();
+	}
+}
 export const createRoom = (roomId, password) => {
+	const size = roomsStorage.size;
+	if (size > 1000) {
+		throw new UserError('TOO_MANY_ROOMS_SORRY');
+	}
+
 	if (roomsStorage.has(roomId)) {
 		// This should never happen.
 		throw new Error('INTERNAL_ERROR_ROOM_BUSY');
 	}
 
-	roomsStorage.set(roomId, {
-		roomId,
-		password,
-		content: '',
-	});
+	roomsStorage.set(roomId, new Room(roomId, password));
 
 	return roomsStorage.get(roomId);
 }
@@ -32,5 +45,22 @@ export const destroyRoom = (roomId, password) => {
 	roomsStorage.delete(roomId);
 
 	return true;
+}
+
+// 1 minute
+const TIME_TO_LIVE = 60 * 1000;
+
+export const flushOld = () => {
+	for (const [roomId, room] of roomsStorage.entries()) {
+		if (Date.now() - room.modified.getTime() > TIME_TO_LIVE) {
+			roomsStorage.delete(roomId);
+		}
+	}
+}
+
+export const getStats = () => {
+	const size = roomsStorage.size;
+
+	return size;
 }
 
