@@ -8,7 +8,7 @@
   "author": "Szymon Nowicki",
   "license": "GPL-3.0-only",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app/index.js",
     "dev": "node --watch --watch-path . app/index.js"
   },
   "dependencies": {
