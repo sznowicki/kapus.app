@@ -1,0 +1,8 @@
+version: '3'
+services:
+  kapus:
+    build: .
+    command: "yarn start"
+    restart: unless-stopped
+    ports:
+      - "9970:3000"

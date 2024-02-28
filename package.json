@@ -1,0 +1,23 @@
+{
+  "name": "@sznowicki/kapus-app",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:sznowicki/kapus.app.git",
+  "author": "Szymon Nowicki",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch --watch-path . app/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint-config-minimal-tabs": "^1.0.0"
+  }
+}

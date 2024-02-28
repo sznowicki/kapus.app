@@ -1,0 +1,203 @@
+:root {
+    --font-family-head: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    --font-family-base: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+
+    --color-background: oklch(1 0 0);
+    --color-base: oklch(0.51 0.13 236.56);
+    --color-contrast-bg: oklch(0.51 0.13 236.56);
+    --color-contrast-fg: oklch(1 0 0);
+    --color-link: unset;
+    --color-link-visited: unset;
+    --border-size: 4px;
+
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --color-background: oklch(0.25 0 0);
+        --color-base: oklch(0.66 0.19 240.27);
+        --color-contrast-bg: oklch(0.66 0.19 240.27);
+        --color-contrast-fg: oklch(0.25 0 0);
+        --border-size: 4px;
+        --color-link: oklch(0.74 0.14 216.65);
+        --color-link-visited: oklch(0.77 0.12 296.41);
+    }
+}
+
+a {
+    color: var(--color-link);
+    &:visited {
+        color: var(--color-link-visited);
+    }
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --box-shadow-corner: 4lh 2px 0 1px var(--color-background), -2px 2px 0 1px;
+    --box-shadow-bottom: 4rem -1px 0 4px var(--color-background), 0 4px 0 -2px, 0 6px 0 0 var(--color-background);
+    --width-max-content: min(70ch, 100%);
+    --width-max-content-wide: min(120ch, 100%);
+}
+
+html {
+    background: var(--color-background);
+    color: var(--color-base);
+    font-family: var(--font-family-base);
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-family-head);
+    margin: 1em 0 1em;
+    padding: 0;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+h1 {
+    & a {
+        color: var(--color-base);
+        text-decoration: none;
+
+        &:visited {
+            color: inherit;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+            color: var(--color-base);
+        }
+    }
+}
+
+p {
+    margin: 1em 0;
+}
+
+ul {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+
+    & > li > ul {
+        margin-left: 2rem;
+    }
+}
+
+
+h1, h2 {
+    & span {
+        font-size: 0.75em;
+    }
+}
+
+
+
+body {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+}
+
+main {
+    background: var(--color-background);
+    padding: 2rem 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+	padding: 1rem;
+	margin: 1rem;
+	box-shadow: var(--box-shadow-corner);
+	& > p {
+		margin: 0;
+	}
+}
+
+form {
+	display: grid;
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+label {
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: column-reverse;
+}
+button {
+	padding: calc(0.75rem - 4px) .75rem;
+	font-size: 1.25rem;
+	font-family: var(--font-family-head);
+	background: var(--color-contrast-bg);
+	color: var(--color-contrast-fg);
+	border: 2px solid var(--color-contrast-bg);
+	box-shadow: 0 0 0 4px var(--color-contrast-bg);
+
+	&:hover,
+	&:focus,
+	&:active {
+		border: 2px solid var(--color-contrast-fg);
+	}
+}
+
+.button--secondary {
+	box-shadow: none;
+	background: var(--color-background);
+	color: var(--color-base);
+	border: 2px solid var(--color-base);
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0 0 4px var(--color-contrast-bg);
+	}
+}
+
+input[type="text"],
+textarea {
+	font-family: var(--font-family-base);
+	padding: .75rem 0.5rem;
+	width: 100%;
+	font-size: 1.25rem;
+	border: 0;
+	box-shadow: 0 2px 0 0px var(--color-base);
+	background: var(--color-background);
+	color: var(--color-base);
+
+	&:focus,
+	&:active {
+		box-shadow: 0 2px 0 0px var(--color-base),  0 0 0 2px var(--color-base);
+		outline: none;
+	}
+}
