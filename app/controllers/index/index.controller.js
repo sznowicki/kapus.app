@@ -24,8 +24,9 @@ const roomGetter = (req, res) => {
 			destroyRoom(roomId, secret);
 			roomId = null;
 			secret = null;
-			res.cookie.delete('roomId');
-			res.cookie.delete('secret');
+			// Delete cookies
+			res.clearCookie('roomId');
+			res.clearCookie('secret');
 		}
 
 		const room = roomId ? getRoom(roomId, secret) : null;
