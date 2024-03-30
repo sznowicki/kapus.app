@@ -2,8 +2,6 @@
 kind: pipeline
 type: exec
 name: on-host
-depends_on:
-  - ci
 steps:
   - name: build
     when:
