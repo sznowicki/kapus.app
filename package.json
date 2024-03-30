@@ -8,7 +8,8 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "start": "node app/index.js",
-    "dev": "node --watch --watch-path . app/index.js"
+    "dev": "node --watch --watch-path . app/index.js",
+    "sign": "drone sign sznowicki/kapus.app --save"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
