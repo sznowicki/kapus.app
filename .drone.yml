@@ -13,3 +13,8 @@ steps:
     commands:
       - cd $CI_DEPLOY_PWD
       - ./deploy.sh
+
+---
+
+kind: signature
+hmac: 83d3dcf8ff764e52783725f1d2189556c22d8e9c584b61bd455463188ec58cc0
