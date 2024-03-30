@@ -1,6 +1,6 @@
 :root {
-    --font-family-head: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-    --font-family-base: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    --font-family-head: system-ui;
+    --font-family-base: system-ui;
 
     --color-background: oklch(1 0 0);
     --color-base: oklch(0.51 0.13 236.56);
