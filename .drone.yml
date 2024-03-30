@@ -11,5 +11,5 @@ steps:
       CI_DEPLOY_PWD:
         from_secret: CI_DEPLOY_PWD
     commands:
-      - cd CI_DEPLOY_PWD
+      - cd $CI_DEPLOY_PWD
       - ./deploy.sh
