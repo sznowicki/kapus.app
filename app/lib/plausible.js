@@ -4,7 +4,7 @@ const anonIp = (ip) => {
 	return anonymizeIp(ip);
 };
 
-const emitEvent = async (req, name, props = {}) => {
+const emitEvent = async (req, name, viewName) => {
 	const { env } = req;
 	const userAgent = req.get('user-agent');
 	let ip = req.get('cf-connecting-ip');
@@ -27,7 +27,7 @@ const emitEvent = async (req, name, props = {}) => {
 		method: 'POST',
 		body: JSON.stringify({
 			name,
-			url: req.originalUrl,
+			url: viewName ? viewName : req.originalUrl,
 			domain: env.PLAUSIBLE_REPORTED_DOMAIN,
 			props,
 		}),
@@ -44,9 +44,9 @@ const emitEvent = async (req, name, props = {}) => {
  * @param req
  * @param {Object} props
  */
-export const emitPageView = async (req, props) => {
+export const emitPageView = async (req, viewName) => {
 	try {
-		await emitEvent(req, 'pageview', props);
+		await emitEvent(req, 'pageview', viewName);
 	} catch (error) {
 		console.error('Plausible failed', error);
 	}

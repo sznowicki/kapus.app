@@ -73,7 +73,7 @@ export const indexController = async (req, res) => {
 	};
 
 	const viewName = data.hasRoom ? '/room' : '/index';
-	emitPageView(req, { url: viewName });
+	emitPageView(req, viewName);
 
 	const html = await renderHtml(indexTemplate, data);
 
