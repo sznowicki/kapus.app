@@ -4,5 +4,7 @@ services:
     build: .
     command: "yarn start"
     restart: unless-stopped
+    env_file:
+      - .env
     ports:
       - "9970:3000"
