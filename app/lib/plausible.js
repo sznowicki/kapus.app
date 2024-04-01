@@ -29,7 +29,6 @@ const emitEvent = async (req, name, viewName) => {
 			name,
 			url: viewName ? viewName : req.originalUrl,
 			domain: env.PLAUSIBLE_REPORTED_DOMAIN,
-			props,
 		}),
 	});
 
@@ -42,7 +41,7 @@ const emitEvent = async (req, name, viewName) => {
  * Note: this is fully GDPR/Telecom compliant as we anonymize the IP address.
  * Should never throw. Should be fire and forget.
  * @param req
- * @param {Object} props
+ * @param {string} viewName
  */
 export const emitPageView = async (req, viewName) => {
 	try {
