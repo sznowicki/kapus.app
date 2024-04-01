@@ -8,16 +8,18 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "start": "node app/index.js",
-    "dev": "node --watch --watch-path . app/index.js",
+    "dev": "node -r dotenv/config --watch --watch-path . app/index.js",
     "sign": "drone sign sznowicki/kapus.app --save"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
+    "ip-anonymize": "^0.1.0",
     "mustache": "^4.2.0"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "eslint-config-minimal-tabs": "^1.0.0"
   }
 }

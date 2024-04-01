@@ -1,13 +1,21 @@
 import express from 'express';
-import { resolve } from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import { withAsyncErrorHandler } from "./lib/withAsyncErrorHandler.js";
 import {indexController} from "./controllers/index/index.controller.js";
 import {flushOld} from "./lib/rooms.js";
 
+const env = {
+	PLAUSIBLE_REPORTED_DOMAIN: process.env.PLAUSIBLE_REPORTED_DOMAIN
+};
+
 const main = async () => {
     const app = express();
+		app.use((req, res, next) => {
+			req.env = env;
+			next();
+		});
+
 		app.use(cookieParser());
 		app.use('/static', express.static('public'));
 		app.use('/', bodyParser.urlencoded());

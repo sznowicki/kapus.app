@@ -3,6 +3,7 @@ import {resolve} from 'path';
 import {renderHtml} from "../../lib/ssr-render.js";
 import {destroyRoom, getRoom, getStats} from '../../lib/rooms.js';
 import {UserError} from "../../lib/Errors.js";
+import { emitPageView } from "../../lib/plausible.js";
 
 const cookieOpts = {
 	maxAge: 1000 * 60 * 60 * 24 * 365,
@@ -71,6 +72,8 @@ export const indexController = async (req, res) => {
 		hasError: !!error,
 	};
 
+	const viewName = data.hasRoom ? '/room' : '/index';
+	emitPageView(req, { viewName });
 
 	const html = await renderHtml(indexTemplate, data);
 
