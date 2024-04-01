@@ -1,6 +1,6 @@
 {{{ before }}}
 <main>
-		<div class="headline">
+		<div class="wrapper">
 			<h1>
 				<a href="/">Kapus.app</a>
 				<br>
@@ -39,7 +39,10 @@
 			<form method="POST">
 				<p>RoomId: {{ room.roomId }}</p>
 				<p>Password: {{ room.password }}</p>
-				<textarea name="content">{{ room.content }}</textarea>
+				<label>
+					Shared content
+					<textarea name="content">{{ room.content }}</textarea>
+				</label>
 				<button type="submit">Save</button>
 				<button type="submit" name="clear" value="1" class="button--secondary">Destroy</button>
 			</form>

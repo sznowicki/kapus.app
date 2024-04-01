@@ -15,11 +15,11 @@
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --color-background: oklch(0.25 0 0);
-        --color-base: oklch(0.66 0.19 240.27);
-        --color-contrast-bg: oklch(0.66 0.19 240.27);
+        --color-base: oklch(0.709 0.206 139.993);
+        --color-contrast-bg: oklch(0.575 0.177 142.378);
         --color-contrast-fg: oklch(0.25 0 0);
         --border-size: 4px;
-        --color-link: oklch(0.74 0.14 216.65);
+        --color-link: oklch(0.812 0.17 165.183);
         --color-link-visited: oklch(0.77 0.12 296.41);
     }
 }
@@ -191,13 +191,25 @@ textarea {
 	width: 100%;
 	font-size: 1.25rem;
 	border: 0;
-	box-shadow: 0 2px 0 0px var(--color-base);
+	box-shadow: 0 1px 0 2px var(--color-base);
 	background: var(--color-background);
 	color: var(--color-base);
 
 	&:focus,
 	&:active {
-		box-shadow: 0 2px 0 0px var(--color-base),  0 0 0 2px var(--color-base);
+		box-shadow: 0 2px 0 4px var(--color-base),  0 0 0 2px var(--color-base);
 		outline: none;
 	}
+}
+
+label:has(textarea) {
+	margin-bottom: 2rem;
+}
+
+textarea {
+	min-height: 12ex;
+}
+
+.wrapper {
+	width: min(60ch, 90vw);
 }
