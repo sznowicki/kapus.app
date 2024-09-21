@@ -12,7 +12,7 @@
     "sign": "drone sign sznowicki/kapus.app --save"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "ip-anonymize": "^0.1.0",
