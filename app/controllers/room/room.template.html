@@ -1,0 +1,26 @@
+{{{ before }}}
+<main>
+	<div class="wrapper">
+		<h1>
+			<a href="/">Kapus.app</a>
+			<br>
+			<span> universal clipboard</span></h1>
+		</h1>
+		{{#hasError}}
+			<p class="error">{{{ error }}}</p>
+		{{/hasError}}
+		{{#hasRoom}}
+		<form method="POST">
+			<p>RoomId: {{ room.roomId }}</p>
+			<p>Password: {{ room.password }}</p>
+			<label>
+				Shared content
+				<textarea name="content">{{ room.content }}</textarea>
+			</label>
+			<button type="submit">Replace content</button>
+			<button type="submit" name="clear" value="1" class="button--secondary">Destroy</button>
+		</form>
+		{{/hasRoom}}
+	</div>
+</main>
+{{{ after }}}
