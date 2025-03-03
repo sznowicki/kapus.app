@@ -11,11 +11,14 @@ import {
 import {SessionRoom} from "./lib/SessionRoom.js";
 
 const env = {
-	PLAUSIBLE_REPORTED_DOMAIN: process.env.PLAUSIBLE_REPORTED_DOMAIN
+	PLAUSIBLE_REPORTED_DOMAIN: process.env.PLAUSIBLE_REPORTED_DOMAIN,
+	KAPUS_BASE_URL: process.env?.KAPUS_BASE_URL ??  'https://kapus.app',
 };
 
 const main = async () => {
 	const app = express();
+	app.set('base_url', env.KAPUS_BASE_URL);
+
 	app.use((req, res, next) => {
 		req.env = env;
 		next();
