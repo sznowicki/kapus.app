@@ -15,8 +15,8 @@ export const renderRoomHtml = async (res, room, error) => {
 		url.pathname = `/room/${room.roomId}`;
 		url.searchParams.append('password', room.password);
 		qrCode = await qrcode.toDataURL(url.toString());
-		console.log(qrCode);
 	}
+
 	const data = {
 		room,
 		error: error?.message,

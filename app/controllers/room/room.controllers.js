@@ -6,6 +6,21 @@ import {emitPageView} from '../../lib/plausible.js';
  * @typedef {import('express').Request} Request
  * @typedef {import('express').Response} Response
  */
+
+export const getRoomRedirect = async (req, res) => {
+	if (!req.query.roomId) {
+		res.redirect(
+			303,
+			'/'
+		);
+		return;
+	}
+
+	res.redirect(
+		302,
+		`/room/${req.query.roomId}?password=${encodeURIComponent(req.query.password)}`
+	);
+};
 /**
  *
  * @param {Request} req

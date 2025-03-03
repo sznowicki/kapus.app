@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import { withAsyncErrorHandler } from './lib/withAsyncErrorHandler.js';
 import {indexController} from './controllers/index/index.controller.js';
 import {
-	getRoomController,
+	getRoomController, getRoomRedirect,
 	postNewRoomController,
 	postRoomController
 } from './controllers/room/room.controllers.js';
@@ -30,8 +30,9 @@ const main = async () => {
 	app.use(bodyParser.json());
 
 	app.get('/', withAsyncErrorHandler(indexController));
-
 	app.get('/room/:id', withAsyncErrorHandler(getRoomController));
+
+	app.get('/room', withAsyncErrorHandler(getRoomRedirect));
 	app.post('/room', withAsyncErrorHandler(postNewRoomController));
 	app.post('/room/:id', withAsyncErrorHandler(postRoomController));
 
