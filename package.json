@@ -9,17 +9,20 @@
   "scripts": {
     "start": "node app/index.js",
     "dev": "node -r dotenv/config --watch --watch-path . app/index.js",
-    "sign": "drone sign sznowicki/kapus.app --save"
+    "sign": "drone sign sznowicki/kapus.app --save",
+    "test": "node --test"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "ip-anonymize": "^0.1.0",
-    "mustache": "^4.2.0"
+    "mustache": "^4.2.0",
+    "qrcode": "^1.5.4"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.21.0",
     "eslint-config-minimal-tabs": "^1.0.0"
   }
 }

@@ -6,47 +6,25 @@
 				<br>
 				<span> universal clipboard</span></h1>
 			</h1>
-			{{#hasError}}
-				<p class="error">{{{ error }}}</p>
-			{{/hasError}}
-			{{#noRoom}}
-				<form method="POST">
-					<label>
-						Room name
-						<input
-							type="text"
-							name="roomId"
-						/>
-					</label>
-					<label>
-						Password (optional, but recommended)
-						<input
-							type="text"
-							name="secret"
-						/>
-					</label>
-					<button type="submit">Send</button>
-				</form>
-				<p>tl;dr: set a room name, optionally protect with password. Paste on one device, copy on another; no matter where is it.</p>
-				<p>To log in to existing room, use same room name and pass.</p>
-				<p>Warning: if you don't set a password, or someone guess it, your data will leak.</p>
-				<p>Warning2: this website keeps your stuff in server memory, no database involved, no encryption. Data is not persistent. Will be destroyed after a minute.</p>
-				<p>I promise not to look into the memory, but again, it's not encrypted (yet). Just saying.</p>
-				<p>I keep no historical clipboards. Once you save, only latest state is kept in memory.</p>
-				<p>If you don't trust me, you can <a href="https://github.com/sznowicki/kapus.app" target="_blank" rel="noreferrer noopener">self-host</a> it.</p>
-			{{/noRoom}}
-			{{#hasRoom}}
-			<form method="POST">
-				<p>RoomId: {{ room.roomId }}</p>
-				<p>Password: {{ room.password }}</p>
-				<label>
-					Shared content
-					<textarea name="content">{{ room.content }}</textarea>
-				</label>
-				<button type="submit">Save</button>
-				<button type="submit" name="clear" value="1" class="button--secondary">Destroy</button>
+			<form method="POST" action="/room">
+				<button type="submit">Create Room</button>
 			</form>
-			{{/hasRoom}}
+			<form method="GET" action="/room">
+				<label>
+					<span>Room name</span>
+					<input type="text" name="roomId" required />
+				</label>
+				<label>
+					<span>Password</span>
+					<input type="text" name="password" required />
+				</label>
+				<button type="submit">Open Room</button>
+			</form>
+			<p>tl;dr: create new room, pick a XOR encryption passkey, save, open on another device.</p>
+			<p>This is an absolutely universal clipboard for texts. Works everywhere, even with curl (docs will follow).</p>
+			<p>To log in to existing room, use same room name and pass.</p>
+			<p>Warning: this website keeps your stuff in server memory, no database involved. Data is not persistent. Will be destroyed after 10 minutes.</p>
+			<p>If you don't trust me, you can <a href="https://github.com/sznowicki/kapus.app" target="_blank" rel="noreferrer noopener">self-host</a> it.</p>
 		</div>
 </main>
 {{{ after }}}

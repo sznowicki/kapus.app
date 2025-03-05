@@ -1,0 +1,50 @@
+{{{ before }}}
+<main>
+	<div class="wrapper">
+		<h1>
+			<a href="/">Kapus.app</a>
+			<br>
+			<span> universal clipboard</span></h1>
+		</h1>
+		{{#hasError}}
+			<p class="error">{{{ error }}}</p>
+		{{/hasError}}
+		{{#hasRoom}}
+			<kapus-encryption>
+				<p>RoomId: {{ room.roomId }}</p>
+				<p>Password: {{ room.password }}</p>
+				<div class="encryption">
+					<label>
+						<span>Encryption passkey (<a href="#encryption" >read more</a>)</span>
+						<input type="text" name="encryption" id="input-encryption" required />
+					</label>
+				</div>
+				<form method="POST" id="form-main">
+					<label>
+						Shared content
+						<textarea name="content" id="input-content">{{ room.content }}</textarea>
+					</label>
+					<label>
+							Enrypt/decrypt
+						<textarea name="crypto-result" id="input-crypto" disabled></textarea>
+					</label>
+					<button type="submit">Replace content</button>
+					<button type="submit" name="clear" value="1" class="button--secondary">Destroy</button>
+				</form>
+				<div class="qrcode">
+					<img src="{{{ qrCode }}}" alt="QR code with current url">
+					<p>Scan to open this room on another device (does not include the encryption passkey)</p>
+				</div>
+			</kapus-encryption>
+			<div id="encryption">
+				<p>Before you save anything, you must add an encryption passkey here.</p>
+				<p>This requires having enabled javascript, otherwise you'd send the passkey to kapus.app which kind of defeats the purpose.</p>
+				<p>Once you add the key here, it will be stored in your browser and used to encrypt/decrypt the content.</p>
+				<p>Non encrypted content never leaves your browser.</p>
+				<p>If you don't put any passkey, kapus.app will pick a random word.</p>
+			</div>
+		{{/hasRoom}}
+	</div>
+</main>
+<script src="/static/encryption.js" type="module"></script>
+{{{ after }}}
