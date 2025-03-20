@@ -28,8 +28,12 @@
 							Enrypt/decrypt
 						<textarea name="crypto-result" id="input-crypto" disabled></textarea>
 					</label>
-					<button type="submit">Replace content</button>
+					<button type="submit">Save</button>
 					<button type="submit" name="clear" value="1" class="button--secondary">Destroy</button>
+				</form>
+				<form method="GET" action="/room/{{ room.roomId }}">
+					<input type="hidden" value="{{ room.password }}" name="password">
+					<button type="submit" class="button--secondary">Reload</button>
 				</form>
 				<div class="qrcode">
 					<img src="{{{ qrCode }}}" alt="QR code with current url">
