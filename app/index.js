@@ -41,7 +41,7 @@ const main = async () => {
 		SessionRoom.flushOld();
 	}, 10000);
 
-	app.listen(3000, () => {
+	app.listen(8080, () => {
 		console.log('server running');
 	});
 };
