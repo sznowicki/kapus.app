@@ -19,8 +19,11 @@ export class KapusEncryption extends HTMLElement {
 		this.decrypt();
 
 		form.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			if (!this.passkeyInput.value) {
+			const isDestroy = e?.submitter?.name === 'clear';
+			if (
+				!isDestroy
+				&& !this.passkeyInput.value
+			) {
 				alert('Please pick a passkey');
 				return false;
 			}
@@ -28,9 +31,6 @@ export class KapusEncryption extends HTMLElement {
 			this.contentTextArea.disabled = true;
 			this.cryptoResultTextArea.name = 'content';
 			this.cryptoResultTextArea.disabled = false;
-			setTimeout(() => {
-				form.submit();
-			}, 1000);
 		});
 
 		this.passkeyInput.addEventListener('input', () => {
