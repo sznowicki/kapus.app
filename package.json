@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
-    "eslint": "^9.21.0",
+    "eslint": "^9.22.0",
     "eslint-config-minimal-tabs": "^1.0.0"
   }
 }
