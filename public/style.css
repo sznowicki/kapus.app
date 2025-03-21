@@ -1,144 +1,149 @@
 :root {
-    --font-family-head: system-ui;
-    --font-family-base: system-ui;
+	--font-family-head: system-ui;
+	--font-family-base: system-ui;
+	--font-family-mono: monospace;
 
-    --color-background: oklch(1 0 0);
-    --color-base: oklch(0.51 0.13 236.56);
-    --color-contrast-bg: oklch(0.51 0.13 236.56);
-    --color-contrast-fg: oklch(1 0 0);
-    --color-link: unset;
-    --color-link-visited: unset;
-    --border-size: 4px;
+	--color-background: oklch(1 0 0);
+	--color-background-raised: oklch(1 0 0);
+	--color-base: oklch(0.51 0.13 236.56);
+	--color-contrast-bg: oklch(0.51 0.13 236.56);
+	--color-contrast-fg: oklch(1 0 0);
+	--color-link: unset;
+	--color-link-visited: unset;
+	--border-size: 4px;
 
 }
 
 @media screen and (prefers-color-scheme: dark) {
-    :root {
-        --color-background: oklch(0.25 0 0);
-        --color-base: oklch(0.709 0.206 139.993);
-        --color-contrast-bg: oklch(0.575 0.177 142.378);
-        --color-contrast-fg: oklch(0.25 0 0);
-        --border-size: 4px;
-        --color-link: oklch(0.812 0.17 165.183);
-        --color-link-visited: oklch(0.77 0.12 296.41);
-    }
+	:root {
+		--color-background: oklch(0.187 0 89.876);
+		--color-background-raised: oklch(0.29 0.07 63.64);
+		--color-base: oklch(0.87 0.179 98.453);
+		--color-contrast-bg: oklch(0.582 0.134 61.568);
+		--color-contrast-fg: oklch(0.173 0 89.876);
+		--border-size: 4px;
+		--color-link: oklch(0.812 0.17 165.183);
+		--color-link-visited: oklch(0.77 0.12 296.41);
+	}
 }
 
 a {
-    color: var(--color-link);
-    &:visited {
-        color: var(--color-link-visited);
-    }
-}
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
+	color: var(--color-link);
 
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+	&:visited {
+		color: var(--color-link-visited);
+	}
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 :root {
-    --box-shadow-corner: 4lh 2px 0 1px var(--color-background), -2px 2px 0 1px;
-    --box-shadow-bottom: 4rem -1px 0 4px var(--color-background), 0 4px 0 -2px, 0 6px 0 0 var(--color-background);
-    --width-max-content: min(70ch, 100%);
-    --width-max-content-wide: min(120ch, 100%);
+	--box-shadow-corner: 4lh 2px 0 1px var(--color-background), -2px 2px 0 1px;
+	--box-shadow-bottom: 4rem -1px 0 4px var(--color-background), 0 4px 0 -2px, 0 6px 0 0 var(--color-background);
+	--width-max-content: min(70ch, 100%);
+	--width-max-content-wide: min(120ch, 100%);
 }
 
 html {
-    background: var(--color-background);
-    color: var(--color-base);
-    font-family: var(--font-family-base);
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
+	background: var(--color-background);
+	color: var(--color-base);
+	font-family: var(--font-family-base);
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: var(--font-family-head);
-    margin: 1em 0 1em;
-    padding: 0;
+	font-family: var(--font-family-head);
+	margin: 1em 0 1em;
+	padding: 0;
 }
 
 h1, h2 {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 h1 {
-    & a {
-        color: var(--color-base);
-        text-decoration: none;
+	& a {
+		color: var(--color-base);
+		text-decoration: none;
 
-        &:visited {
-            color: inherit;
-        }
+		&:visited {
+			color: inherit;
+		}
 
-        &:hover,
-        &:focus,
-        &:active {
-            text-decoration: underline;
-            color: var(--color-base);
-        }
-    }
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: underline;
+			color: var(--color-base);
+		}
+	}
 }
 
 p {
-    margin: 1em 0;
+	margin: 1em 0;
 }
 
 ul {
-    margin: 1rem 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 1rem;
+	margin: 1rem 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 1rem;
 
-    & > li > ul {
-        margin-left: 2rem;
-    }
+	& > li > ul {
+		margin-left: 2rem;
+	}
 }
 
 
 h1, h2 {
-    & span {
-        font-size: 0.75em;
-    }
+	& span {
+		font-size: 0.75em;
+	}
 }
-
 
 
 body {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    height: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	height: 100%;
 }
 
 main {
-    background: var(--color-background);
-    padding: 2rem 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	background: var(--color-background);
+	padding: 2rem 1rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 footer {
 	padding: 1rem;
 	margin: 1rem;
 	box-shadow: var(--box-shadow-corner);
+
 	& > p {
 		margin: 0;
 	}
@@ -155,10 +160,14 @@ label {
 	gap: 0.5rem;
 	flex-direction: column-reverse;
 }
+
+
+
 button {
 	padding: calc(0.75rem - 4px) .75rem;
-	font-size: 1.25rem;
-	font-family: var(--font-family-head);
+	font-size: 1.2rem;
+	font-family: var(--font-family-mono);
+	font-weight: 500;
 	background: var(--color-contrast-bg);
 	color: var(--color-contrast-fg);
 	border: 2px solid var(--color-contrast-bg);
@@ -172,24 +181,27 @@ button {
 }
 
 .button--secondary {
-	box-shadow: none;
 	background: var(--color-background);
+	font-weight: 500;
+	font-size: 1.1rem;
 	color: var(--color-base);
-	border: 2px solid var(--color-base);
+	box-shadow: 0 0 0 4px var(--color-base);
+	border: 2px solid var(--color-background);
 
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: 0 0 0 4px var(--color-contrast-bg);
+		box-shadow: 0 0 0 4px var(--color-base);
+		border: 2px solid var(--color-contrast-bg);
 	}
 }
 
 input[type="text"],
 textarea {
-	font-family: var(--font-family-base);
+	font-family: var(--font-family-mono);
 	padding: .75rem 0.5rem;
 	width: 100%;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	border: 0;
 	box-shadow: 0 1px 0 2px var(--color-base);
 	background: var(--color-background);
@@ -197,8 +209,9 @@ textarea {
 
 	&:focus,
 	&:active {
-		box-shadow: 0 2px 0 4px var(--color-base),  0 0 0 2px var(--color-base);
+		box-shadow: 5px 5px 0 2px var(--color-base), 0 0 0 1px var(--color-base);
 		outline: none;
+		background: var(--color-background-raised);
 	}
 }
 
