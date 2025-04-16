@@ -4,8 +4,7 @@ const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 export const encode  = (text) => {
-	const normalizedText = text.normalize('NFC'); // Normalize to NFC
-	const ui8 = encoder.encode(normalizedText);
+	const ui8 = encoder.encode(text);
 	return ENCRYPTED_FLAG + ui8.toString();
 };
 
